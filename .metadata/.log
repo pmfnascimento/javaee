@@ -1,0 +1,980 @@
+!SESSION 2025-12-09 23:15:55.483 -----------------------------------------------
+eclipse.buildId=4.37.0.20250905-1455
+java.version=21.0.8
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_PT
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data C:\JavaProjects\javaee
+
+!ENTRY org.eclipse.eclemma.core 4 0 2025-12-09 23:16:01.954
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [320]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.13.202504020838"
+       org.jacoco.report [961]
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+              org.jacoco.core [960]
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.8.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2025-12-09 23:16:01.961
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [322]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+       org.jacoco.core [960]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.10.202505212130"; singleton:="true"
+       org.eclipse.eclemma.core [320]
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.13,0.8.14)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.13.202504020838"
+              org.jacoco.report [961]
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.8.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-12-09 23:16:02.251
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.jst.ws.axis.consumption.ui 4 0 2025-12-09 23:16:03.046
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis.consumption.ui [574]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.consumption.ui [587]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+              org.eclipse.jst.ws.ui [611]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis.creation.ui 4 0 2025-12-09 23:16:03.264
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis.creation.ui [575]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis.consumption.ui; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis.consumption.ui; bundle-version="1.1.100.v202405180441"; singleton:="true"
+       org.eclipse.jst.ws.axis.consumption.ui [574]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.consumption.ui [587]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+                     org.eclipse.wst.ws.explorer [909]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+                     org.eclipse.jst.ws.ui [611]
+                       Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                         -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis2.consumption.core 4 0 2025-12-09 23:16:03.467
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis2.consumption.core [578]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.consumption.ui [587]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+              org.eclipse.jst.ws.ui [611]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.axis2.ui [583]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis2.consumption.ui 4 0 2025-12-09 23:16:03.645
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis2.consumption.ui [579]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.core
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.core; bundle-version="1.1.0.v202308010354"
+       org.eclipse.jst.ws.axis2.consumption.core [578]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.consumption.ui [587]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+                     org.eclipse.wst.ws.explorer [909]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+                     org.eclipse.jst.ws.ui [611]
+                       Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                         -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.axis2.ui [583]
+                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis2.creation.core 4 0 2025-12-09 23:16:03.824
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis2.creation.core [581]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.core
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.core; bundle-version="1.1.0.v202308010354"
+       org.eclipse.jst.ws.axis2.consumption.core [578]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.consumption.ui [587]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+                     org.eclipse.wst.ws.explorer [909]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+                     org.eclipse.jst.ws.ui [611]
+                       Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                         -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.axis2.ui [583]
+                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis2.creation.ui 4 0 2025-12-09 23:16:03.994
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis2.creation.ui [582]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+       org.eclipse.jst.ws.ui [611]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.consumption.ui [587]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.core
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.core; bundle-version="1.1.0.v202308010354"
+       org.eclipse.jst.ws.axis2.consumption.core [578]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.axis2.ui [583]
+                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.creation.core
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.creation.core; bundle-version="1.1.0.v202308010145"
+       org.eclipse.jst.ws.axis2.creation.core [581]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.core
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.core; bundle-version="1.1.0.v202308010354"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.axis2.consumption.ui [579]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.consumption.core
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.consumption.core; bundle-version="1.1.0.v202308010354"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.axis2.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.axis2.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.axis2.ui 4 0 2025-12-09 23:16:04.132
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.axis2.ui [583]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+       org.eclipse.jst.ws.ui [611]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.consumption.ui 4 0 2025-12-09 23:16:04.274
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.consumption.ui [587]
+  Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+       org.eclipse.wst.ws.explorer [909]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+       org.eclipse.jst.ws.ui [611]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.creation.ui 4 0 2025-12-09 23:16:04.403
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.creation.ui [590]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+       org.eclipse.jst.ws.ui [611]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.consumption.ui [587]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,1.2.0)"
+    -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.cxf.consumption.ui 4 0 2025-12-09 23:16:04.534
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.cxf.consumption.ui [592]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.consumption.ui [587]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+              org.eclipse.jst.ws.ui [611]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.cxf.creation.ui 4 0 2025-12-09 23:16:04.667
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.cxf.creation.ui [595]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.cxf.consumption.ui; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.cxf.consumption.ui; bundle-version="1.1.0.v202308010229"; singleton:="true"
+       org.eclipse.jst.ws.cxf.consumption.ui [592]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+              org.eclipse.jst.ws.consumption.ui [587]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.2,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+                     org.eclipse.wst.ws.explorer [909]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+                     org.eclipse.jst.ws.ui [611]
+                       Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+                         -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.creation.ui; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.creation.ui; bundle-version="1.1.0.v202308010145"; singleton:="true"
+       org.eclipse.jst.ws.creation.ui [590]
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.consumption.ui; bundle-version="[1.2.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.jst.ws.consumption.ui; bundle-version="1.2.0.v202308010145"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,1.2.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.uddiregistry 4 0 2025-12-09 23:16:04.774
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.uddiregistry [610]
+  Unresolved requirement: Require-Bundle: org.eclipse.jst.ws.ui; bundle-version="[1.0.100,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.jst.ws.ui; bundle-version="1.1.100.v202308012257"; singleton:="true"
+       org.eclipse.jst.ws.ui [611]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+              org.eclipse.wst.ws.explorer [909]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.jst.ws.ui 4 0 2025-12-09 23:16:04.874
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jst.ws.ui [611]
+  Unresolved requirement: Require-Bundle: org.eclipse.wst.ws.explorer; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.wst.ws.explorer; bundle-version="1.1.100.v202408150414"; singleton:="true"
+       org.eclipse.wst.ws.explorer [909]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.wst.ws.explorer 4 0 2025-12-09 23:16:05.227
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wst.ws.explorer [909]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] and org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.4.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+
+Chain 2:
+  org.eclipse.wst.ws.explorer [osgi.identity; type="osgi.bundle"; version:Version="1.1.100.v202408150414"; osgi.identity="org.eclipse.wst.ws.explorer"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.osgi.service.http)(version>=1.2.0))
+     |
+    export: osgi.wiring.package=org.osgi.service.http; uses:=javax.servlet.http
+  osgi.enterprise [osgi.identity; type="osgi.bundle"; version:Version="4.2.0.v201108120515"; osgi.identity="osgi.enterprise"]
+    import: (osgi.wiring.package=javax.servlet.http)
+     |
+    export: osgi.wiring.package: javax.servlet.http; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.apache.felix.http.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="1.2.0"; osgi.identity="org.apache.felix.http.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-12-09 23:16:06.864
+!MESSAGE Logback config file: C:\JavaProjects\javaee\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.100.20250418-1315.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-12-09 23:16:20.263
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\pmfna'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2025-12-09 23:18:02.966
+!MESSAGE Version 6.0 of project facet glassfish.web does not exist. It is used in plugin org.glassfish.eclipse.tools.server.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2025-12-09 23:18:14.559
+!MESSAGE Connection to https://www.caucho.com/eclipse/site.xml failed on PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1327)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1204)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1147)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:447)
+	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1506)
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.executeHandshake(SSLConnectionSocketFactory.java:350)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:318)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:303)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder.lambda$setSSLSocketFactory$0(PoolingHttpClientConnectionManagerBuilder.java:125)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:219)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:230)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1311)
+	... 35 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 40 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2025-12-09 23:18:15.358
+!MESSAGE Connection to https://www.caucho.com/eclipse/p2.index failed on PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1327)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1204)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1147)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:447)
+	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1506)
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.executeHandshake(SSLConnectionSocketFactory.java:350)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:318)
+	at org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:303)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder.lambda$setSSLSocketFactory$0(PoolingHttpClientConnectionManagerBuilder.java:125)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:219)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:230)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132)
+	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1311)
+	... 35 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 40 more
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.344
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/application-client_9.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.346
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/jobXML_2_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.348
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.350
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jaxb/bindingschema_3_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.365
+!MESSAGE The given URI https://jakarta.ee/xml/ns/validation/validation-configuration-3.0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2025-12-09 23:18:47.374
+!MESSAGE The given URI http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_1.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
