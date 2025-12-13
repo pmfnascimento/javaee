@@ -10,7 +10,7 @@ import java.io.*;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet("/HelloWorld")
+@WebServlet("/hiddenservlets/helloworld2.do")
 public class HelloWorld extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -19,7 +19,6 @@ public class HelloWorld extends HttpServlet {
      */
     public HelloWorld() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
