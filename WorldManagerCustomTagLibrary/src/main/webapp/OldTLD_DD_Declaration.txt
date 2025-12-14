@@ -1,0 +1,6 @@
+  <jsp-config>
+  	<taglib>
+  		<taglib-uri>WorldManagerTags</taglib-uri>
+  		<taglib-location>/WEB-INF/WorldManagerTags.tld</taglib-location>
+  	</taglib>
+  </jsp-config>

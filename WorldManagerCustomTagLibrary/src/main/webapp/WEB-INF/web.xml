@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        xmlns="https://jakarta.ee/xml/ns/jakartaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+        version="5.0"
+        metadata-complete="false"> 
+
+<display-name>WorldManagerCustomTagLibrary</display-name>
+<listener>
+    <listener-class>
+  		com.worldmanager.dbhelpers.DBManagerSetup
+ 	</listener-class>
+  </listener>
+  <context-param>
+    <param-name>copyright</param-name>
+    <param-value>2142</param-value>
+  </context-param>
+  <context-param>
+    <param-name>weblink</param-name>
+    <param-value>http://www.infiniteskills.com</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbuserid</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbuserpwd</param-name>
+    <param-value>12307554</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbinitcat</param-name>
+    <param-value>world</param-value>
+  </context-param>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/errorHandler.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/errorHandler.jsp</location>
+  </error-page>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
