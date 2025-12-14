@@ -1,0 +1,8 @@
+  <filter>
+  	<filter-name>AuthorizationFilter</filter-name>
+  	<filter-class>com.worldmanager.filters.AuthorizationFilter2</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>AuthorizationFilter</filter-name>
+  	<url-pattern>/Protected2/*</url-pattern>
+  </filter-mapping>
